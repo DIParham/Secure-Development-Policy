@@ -20,7 +20,7 @@ assert id != NULL;
 
 This practice can result in various implications and other errors that have the potential to open vulnerabilities. Compliant usage of assertions will instruct the program to fail or interrupt if conditions are not met. For this project, assertions are used to test that conditions have been met. For instance, this code block demonstrates the compliant usage of assertions to assert that the collection is indeed empty. If the collection is not empty, the program would fail. 
 
-// TODO: Create a test to verify clear erases the collection
+// Create a test to verify clear erases the collection
 TEST_F(CollectionTest, VerifyEraseCollection) {
     //clear() function clears and erases the collection
     collection->clear();
