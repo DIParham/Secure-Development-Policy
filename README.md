@@ -7,7 +7,7 @@ This portion of the project examined how buffer overflows work and create vulner
 
 The issue is mitigated by introducing a character limit that prevents users from entering excessive characters:
 
-std::cin.width(20);
+    std::cin.width(20);
 
 This line of code limits user input to only 20 characters and thus, prevents the occurrence of buffer overflow. 
 
@@ -20,14 +20,12 @@ assert id != NULL;
 
 This practice can result in various implications and other errors that have the potential to open vulnerabilities. Compliant usage of assertions will instruct the program to fail or interrupt if conditions are not met. For this project, assertions are used to test that conditions have been met. For instance, this code block demonstrates the compliant usage of assertions to assert that the collection is indeed empty. If the collection is not empty, the program would fail. 
 
-// Create a test to verify clear erases the collection
-
-TEST_F(CollectionTest, VerifyEraseCollection) {
-
-    //clear() function clears and erases the collection
-    collection->clear();
-    ASSERT_TRUE(collection->empty()); 
-}
+    // Create a test to verify clear erases the collection
+    TEST_F(CollectionTest, VerifyEraseCollection) {
+        //clear() function clears and erases the collection
+        collection->clear();
+        ASSERT_TRUE(collection->empty()); 
+    }
 
 [Assertions](https://github.com/DIParham/Secure-Development-Policy/blob/main/Assertions.cpp)
 
