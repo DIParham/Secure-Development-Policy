@@ -19,7 +19,9 @@ The issue is mitigated by introducing a character limit that prevents users from
 
     std::cin.width(20);
 
-This line of code limits user input to only 20 characters and thus, prevents the occurrence of buffer overflow. It prevented the program from accepting an excessive amount of characters and crashing. For instance, if a user were to insert the entire alphabet, the program would only accept letters A through T and omit the rest. 
+This line of code limits user input to only 20 characters and thus, prevents the occurrence of buffer overflow. It prevented the program from accepting an excessive amount of characters and crashing. For instance, if a user were to insert the entire alphabet, the program would only accept letters A through T and omit the rest.
+
+![Screenshot (5)](https://user-images.githubusercontent.com/79165798/166167092-8bf07977-195d-4dce-9fa9-5b541fe3ed9a.png)
 
 Through this project, I developed a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources by recognizing, locating, and resolving buffer overflow vulnerabilities in the code. I was able to properly recognize and apply a solution to a buffer overflow that resulted in the crashing of a program and exposure of sensitive information. 
 
@@ -38,6 +40,8 @@ This practice can result in various implications and other errors that have the 
         collection->clear();
         ASSERT_TRUE(collection->empty()); 
     }
+    
+![Screenshot (7)](https://user-images.githubusercontent.com/79165798/166167512-897dfcf9-511b-4f36-a964-6cfd63fd21ea.png)
     
 With this assignment, I developed a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources by utilizing whitebox testing to ensure that the program functions as expected.
 
@@ -79,6 +83,8 @@ To resolve this issue, a regex (regular expression) is utilized to whitelist val
         std::cerr << "SQL OK!" << std::endl;
         return true;
     }
+
+![Screenshot (6)](https://user-images.githubusercontent.com/79165798/166167327-efe5a9bb-6999-4a1c-9aab-91728dabd72d.png)
 
 Through this project, I developed a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources by recognizing, locating, and resolving SQL Injection vulnerabilities in the code.
  
@@ -143,3 +149,7 @@ A catch-all block is used to ensure any unspecified exception that has been thro
 The implementation of try-catch blocks prevented errors such as inf from occurring. 
 
 ![image](https://user-images.githubusercontent.com/79165798/166166690-c2def094-11a1-4757-81f1-f02dfd8534ff.png)
+
+With this assignment, I developed a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources by utilizing try-catch blocks to ensure that the program handled exceptions properly.
+
+[Exceptions](https://github.com/DIParham/Secure-Development-Policy/blob/main/Exceptions.cpp)
