@@ -11,7 +11,9 @@ This portion of the project examined how buffer overflows work and create vulner
     std::cout << "Enter a value: ";
     std::cin >> user_input;
 
-In this section of the program, user_input is an array of 20 characters. This creates a limitation to how much memory the program has allocated, which results in the data overwriting the memory boundaries set for it. As a result, a user could type in a value that has greater than 20 characters and it would overflow the buffer. This vulnerability caused the program to crash as well as display the account number. 
+In this section of the program, user_input is an array of 20 characters. This creates a limitation to how much memory the program has allocated, which results in the data overwriting the memory boundaries set for it. As a result, a user could type in a value that has greater than 20 characters and it would overflow the buffer. This vulnerability caused the program to crash. 
+
+![image](https://user-images.githubusercontent.com/79165798/166166429-93ec83cb-a4b6-45e2-9753-d22dea22c432.png)
 
 The issue is mitigated by introducing a character limit that prevents users from entering excessive characters:
 
@@ -55,7 +57,11 @@ Example:
     
 Because 1=1 is always true, this statement would return all the rows from the "User" table. This would display other users' login information. 
 
-The SQL Injection project demonstrates the impact of code vulnerable to SQL injection. Prior to mitigating the vulnerability, running the code would display the user login information. To resolve this issue, a regex (regular expression) is utilized to whitelist valid characters and give the program the ability to detect suspected SQL Injections. 
+The SQL Injection project demonstrates the impact of code vulnerable to SQL injection. Prior to mitigating the vulnerability, running the code would display the user login information. 
+
+![image](https://user-images.githubusercontent.com/79165798/166166373-f2269645-08db-4270-98d4-d9cc81c49bbc.png)
+
+To resolve this issue, a regex (regular expression) is utilized to whitelist valid characters and give the program the ability to detect suspected SQL Injections. 
 
      std::regex expr("[a-zA-Z_] [a-zA-Z_0-9]*\\.[a-zA-Z0-9]+");
 
@@ -80,8 +86,60 @@ Through this project, I developed a security mindset that anticipates adversaria
 
 ### Exceptions
 
-Exceptions are used as a response to a problem that occurs during a program execution. 
+An exception is a problem that occurs during program execution. It disrupts the program to have it abnormally terminate. The cause of an exception can revolve around various reasons including invalid data entry, a file that cannot be found, etc. It is important to address exceptions. There are instances where checked exceptions are suppressed or ignored. This is done through the usage of empty try-catch blocks. 
+
+In this portion of the assignment, exceptions were used to try, throw, and catch various errors throughout the program. 
 
 ![image](https://user-images.githubusercontent.com/79165798/166165430-7ea022a5-b884-4115-a523-658f222936d5.png)
 
 The first step in resolving the program errors was to run the program to understand the problems associated with it. An issue found with the program was associated with the divide function. It would divide numbers by zero which created in the invalid solution, inf.  
+This problem was mitigated by incorporating an if statement which would throw an exception if the variable, den, was equivalent to 0. 
+
+	if (den == 0) {
+        	std::cout << "\nRunning Division" << std::endl;
+        	throw "Exception Thrown: \n\tDivide - Division by 0! \n";
+       
+The exception was caught in the following function, do_division(). This printed an error message that prevented the division of a number by 0. The try blocks indicates lines of code that would most likely throw an exception. The catch block specifies the actions to take if an exception is thrown. 
+
+	//divide operation placed in the try block
+    	try {
+        	auto result = divide(numerator, denominator);
+        	std::cout << "divide(" << numerator << ", " << denominator << ") = " << result << std::endl;
+    	}
+    	//if the den = 0, an exception will be thrown and then caught
+    	catch (const char* msg) {
+        	std::cerr << msg << std::endl;
+		
+In the bool do_even_more_custom_application_logic(), a standard exception is thrown which indicates a Runtime error. The Runtime error would only occur if the do_even_more_custom_application_logic() is true. If the condition for the Runtime error is met, the error will be thrown. 
+The struct, logicError, holds the custom exception which is thrown in the do_custom_application_logic() function and would be caught in the main function. 
+
+  //catches the custom exception logicError
+    catch (logicError& error) {
+        
+        std::cerr <<"\nCustom Exception Caught: "<< error.what() << std::endl;
+	
+The what() function returns a null terminated sequence that helps to identify the exception that had been thrown.  
+In the main() function, the function calls (do_division and do_custom_application_logic) are placed in the try block. The catch block is then used to catch any uncaught exceptions such as the custom exception. 
+
+	//catches the custom exception logicError
+    	catch (logicError& error) {
+        
+       		std::cerr <<"\nCustom Exception Caught: "<< error.what() << std::endl;
+   	 }
+   	 //this catch block will catch the runtime error if the do_even_more_custom_application_logic function is true. 
+   	 catch (std::runtime_error& error) {
+        	std::cerr << "\nStandard Exception Caught: " << error.what() << std::endl;
+   	 }
+	 
+A catch-all block is used to ensure any unspecified exception that has been thrown is caught. 
+
+	//a catch all block catches any missed exceptions that would have created issues during the execution of the program
+    	//catches all exceptions
+	
+    	catch (...) {
+        	std::cerr << "All Exceptions Caught..." << std::endl;
+    	}
+
+The implementation of try-catch blocks prevented errors such as inf from occurring. 
+
+![image](https://user-images.githubusercontent.com/79165798/166166690-c2def094-11a1-4757-81f1-f02dfd8534ff.png)
