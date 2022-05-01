@@ -80,5 +80,8 @@ Through this project, I developed a security mindset that anticipates adversaria
 
 ### Exceptions
 
+Exceptions are used as a response to a problem that occurs during a program execution. 
+
 ![image](https://user-images.githubusercontent.com/79165798/166165430-7ea022a5-b884-4115-a523-658f222936d5.png)
 
+The first step in resolving the program errors was to run the program to understand the problems associated with it. An issue found with the program was associated with the divide function. It would divide numbers by zero which created in the invalid solution, inf.  
