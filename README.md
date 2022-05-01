@@ -78,4 +78,7 @@ Through this project, I developed a security mindset that anticipates adversaria
  
 [SQL Injection](https://github.com/DIParham/Secure-Development-Policy/blob/main/SQLInjection.cpp)
 
-### Static Analysis
+### Exceptions
+
+![image](https://user-images.githubusercontent.com/79165798/166165430-7ea022a5-b884-4115-a523-658f222936d5.png)
+
