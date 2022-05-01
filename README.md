@@ -1,15 +1,25 @@
 # Secure Development Policy Project
 
-Examined C++ code for various vulnerabilities including Buffer Overflow, Assertions, Exceptions, Static Analysis, and Encryption, and developed remedies to better secure programs. Conforms to current coding standards to ensure compliant code. 
+Examined C++ code for various vulnerabilities including Buffer Overflow, Assertions, SQL Injections, Static Analysis, and Encryption, and developed remedies to better secure programs. Conforms to current coding standards to ensure compliant code. 
 
 ### Buffer Overflow
-This portion of the project examined how buffer overflows work and create vulnerabilities in programs. Buffer overflows occur when the data is written of input beyond the bounds of the allocated memory. The occurrence of buffer overflows results in program crashes and an open vulnerability that could be exploited by threat actors. 
+This portion of the project examined how buffer overflows work and create vulnerabilities in programs. Buffer overflows occur when the data is written of input beyond the bounds of the allocated memory. The occurrence of buffer overflows results in program crashes and an open vulnerability that could be exploited by threat actors.
+
+    const std::string account_number = "CharlieBrown42";
+	char user_input[20];
+  
+    std::cout << "Enter a value: ";
+    std::cin >> user_input;
+
+In this section of the program, user_input is an array of 20 characters. This creates a limitation to how much memory the program has allocated, which results in the data overwriting the memory boundaries set for it. As a result, a user could type in a value that has greater than 20 characters and it would overflow the buffer. This vulnerability caused the program to crash as well as display the account number. 
 
 The issue is mitigated by introducing a character limit that prevents users from entering excessive characters:
 
     std::cin.width(20);
 
-This line of code limits user input to only 20 characters and thus, prevents the occurrence of buffer overflow. 
+This line of code limits user input to only 20 characters and thus, prevents the occurrence of buffer overflow. It prevented the program from accepting an excessive amount of characters and crashing. For instance, if a user were to insert the entire alphabet, the program would only accept letters A through T and omit the rest. 
+
+Through this project, I developed a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources by recognizing, locating, and resolving buffer overflow vulnerabilities in the code. I was able to properly recognize and apply a solution to a buffer overflow that resulted in the crashing of a program and exposure of sensitive information. 
 
 [Buffer Overflow](https://github.com/DIParham/Secure-Development-Policy/blob/main/BufferOverflow.cpp)
 
@@ -38,6 +48,7 @@ SQL Injections are malicious code injection techniques utilized to obtain unauth
 By running a SQL statement that is always true, it would return all the information from the database. 
 
 Example: 
+    
     UserID: 123 OR 1=1
     
     SELECT* FROM  User WHERE UserID = 123 OR 1=1;
@@ -66,3 +77,5 @@ The SQL Injection project demonstrates the impact of code vulnerable to SQL inje
 Through this project, I developed a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources by recognizing, locating, and resolving SQL Injection vulnerabilities in the code.
  
 [SQL Injection](https://github.com/DIParham/Secure-Development-Policy/blob/main/SQLInjection.cpp)
+
+### Static Analysis
