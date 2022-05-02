@@ -220,7 +220,3 @@ The ten security principles discuss best practices to minimize vulnerabilities. 
 The coding standards depict instances of unsecure coding practices and how it open vulnerabilities to threat actors. Hard coding, for example, is the practice of coding data directly into a program’s source code. By hard coding variables for user login information, for instance, it would allow hackers and other unauthorized individuals to view and potentially access a user's account. To prevent this vulnerability, the coding standards demonstrate that using string variables to hold user login information is more secure. 
 
 [Secure Development Policy](https://github.com/DIParham/Secure-Development-Policy/blob/main/Secure%20Development%20Policy.docx)
-
-### Secure Development Policy Presentation
-
-
