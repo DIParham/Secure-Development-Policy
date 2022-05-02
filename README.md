@@ -153,3 +153,64 @@ The implementation of try-catch blocks prevented errors such as inf from occurri
 With this assignment, I developed a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources by utilizing try-catch blocks to ensure that the program handled exceptions properly.
 
 [Exceptions](https://github.com/DIParham/Secure-Development-Policy/blob/main/Exceptions.cpp)
+
+### Encryption
+
+Encryption is the process of converting plain text or other forms of information into a ciphertext. A ciphertext can only be decrypted by applying the opposite conversion algorithm used to encrypt the text. This helps to provide protection for sensitive information and to ensure that the data is not accessed by unauthorized individuals.
+
+For this assignment, there were three portions that were in need of completion: establishing the encryption key, reading a file, and saving a file. 
+To create a key for the encryption, the format, ^key[i % key_length] was used. This ensured that the encryption key applied, would successfully encrypt the file. This would generate random characters that would be utilized to encrypt the file. 
+
+	for(size_t i =0; i<source_length; ++i){
+		// transforms each character based on an xor of each key modde
+		output[i]= source[i]^key[i %key_length];
+	}
+ 
+The [i % key_length] would provide the minimum key length require for the encryption. This would enhance the security of the file. 
+
+	  std::string read_file(const std::string& filename)
+	{
+		  std::string file_text = "John Q. Smith\nThis is my test string";
+
+		  // TODO: implement loading the file into a string
+
+		  std::ifstream filein("inputdatafile.txt");
+		  std::string content((std::istreambuf_iterator<char>(filein)),
+		      (std::istreambuf_iterator<char>()));
+		  return content;
+	}
+ 
+The read_file() function utilizes the ifstream statement to import and read a file. std::ifstream filein(“inputdatafile.txt”); specifies the file that is to be read. The following statement:
+
+	std::string content ((std::istreambuf_iterator<char.>(filein)), (std::istreambuf_iterator<char>())); 
+	
+is the logic that allows the program to read in a string format. 
+
+The save_data_file() function allows the program to save a text file in a specified format. std::ofstream is used to write and save files. The open() function is utilized to open the inputdatafile.txt document. This would specify the document the program should write to. The close() function is utilized to close the selected document and would guarantee the safety of the document/file.
+	
+	void save_data_file(const std::string& filename, const std::string& student_name, const std::string& key, const std::string& data)
+	{
+		  //  implement file saving
+		  //  file format
+		  //  Line 1: student name
+		  //  Line 2: timestamp (yyyy-mm-dd)
+		  //  Line 3: key used
+		  //  Line 4+: data
+
+		    std::time_t t = std::time(nullptr);
+		    std::ofstream ofs;
+		    ofs.open(filename);
+		    ofs << student_name << std::endl;
+		    ofs << std::asctime(std::localtime(&t)) << std::endl;
+		    ofs << key << std::endl;
+		    ofs << data << std::endl;
+		    ofs.close();    
+	}
+
+With this assignment, I developed a security mindset to enhance the security of data and utilized encryption algorithms to develop a XOR encryption that prevents the use of brute-force to decrypt the data. 
+
+[Encryption](https://github.com/DIParham/Secure-Development-Policy/blob/main/Encryption%20project.zip)
+
+### Secure Development Policy
+
+### Secure Development Policy Presentation
