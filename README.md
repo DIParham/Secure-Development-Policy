@@ -213,4 +213,14 @@ With this assignment, I developed a security mindset to enhance the security of 
 
 ### Secure Development Policy
 
+An overview of the ten security principles and secure coding standards. Provides non-compliant and compliant examples of the coding standards and details the importance of each one. It emphasizes on the consequences and vulnerabilities that open if the coding standards and security principles are not followed correctly. 
+
+The ten security principles discuss best practices to minimize vulnerabilities. For instance, it states how the practice of DiD (Defense in Depth) would better protect a system or network in comparison to a single layer of protection. By combining multiple layers of security (i.e., firewall, encryption, antivirus software, etc.), it provides layered and redundant security mechanisms that would replace each other if one failed. 
+
+The coding standards depict instances of unsecure coding practices and how it open vulnerabilities to threat actors. Hard coding, for example, is the practice of coding data directly into a program’s source code. By hard coding variables for user login information, for instance, it would allow hackers and other unauthorized individuals to view and potentially access a user's account. To prevent this vulnerability, the coding standards demonstrate that using string variables to hold user login information is more secure. 
+
+[Secure Development Policy](https://github.com/DIParham/Secure-Development-Policy/blob/main/Secure%20Development%20Policy.docx)
+
 ### Secure Development Policy Presentation
+
+
